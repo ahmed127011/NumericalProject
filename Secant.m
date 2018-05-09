@@ -1,4 +1,4 @@
-function [] = Secant (x_i0,x_i1,func)
+function [x_i2] = Secant (x_i0,x_i1,func)
 syms f(x)
 f(x) = func;
 fx_0 = double(f(x_i0));

@@ -1,4 +1,4 @@
-function [rooti2] = birgeVietaCaller(a,x0)
+function[] = birgeVietaCaller(a,x0)
      format long
      %a =[-130 120 -2 -9 1];
      %rooti1=myBirgeVieta(a,-3);
