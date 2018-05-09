@@ -1,9 +1,9 @@
-function [str_arr]= myFalsePosition (func,lb,ub)
+function []= myFalsePosition (func,lb,ub)
 syms f(x);
 f(x)=func;
 xl=lb;
 xu=ub;
-double(f(180));
+f(180)
 xrnew= double(((xl*f(xu))- (xu*f(xl)))/(f(xu) - f(xl)));
 xrold=0;
 i=1;
@@ -36,10 +36,10 @@ while  error > 0.0001 && i<50
     string_xrnew = num2str(xrnew);
     string_error = num2str(error);
     str = ['xl = ' string_xl '  xu =  ' string_xu ' xr =  ' string_xrnew  '  error =  '  string_error];
-    str_arr = cat(1,str_arr,str);
+    str_arr = cat(1,str_arr,;
 
 end
-
+fprintf('the regula method value equals %f\n',xrnew);
 end
 
 
