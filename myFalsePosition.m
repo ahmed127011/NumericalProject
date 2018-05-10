@@ -1,4 +1,4 @@
-function [str_arr]= myFalsePosition (func,lb,ub)
+function [str_arr,lower_boundArr,upper_boundArr]= myFalsePosition (func,lb,ub,maxIterations,precision)
 syms f(x);
 f(x)=func;
 xl=lb;
@@ -13,14 +13,17 @@ string_xl = num2str(xl);
 string_xu = num2str(xu);
 string_xrnew = num2str(xrnew);
 string_error = num2str(error);
+
 str = ['xl = ' string_xl '  xu =  ' string_xu ' xr =  ' string_xrnew  '  error =  '  string_error];
 str_arr = {str};
+lower_boundArr = {string_xl};
+upper_boundArr = {string_xu};
 
-
-while  error > 0.0001 && i<50
+while  error > precision && i< maxIterations
     if (f(xu)*f(xrnew)<0)
         xl=xrnew;
-    else if (f(xl)*f(xrnew)<0)
+    else
+        if (f(xl)*f(xrnew)<0)
         xu=xrnew;
         else 
             break;   
@@ -37,7 +40,9 @@ while  error > 0.0001 && i<50
     string_error = num2str(error);
     str = ['xl = ' string_xl '  xu =  ' string_xu ' xr =  ' string_xrnew  '  error =  '  string_error];
     str_arr = cat(1,str_arr,str);
-
+    lower_boundArr =  cat(1,lower_boundArr,string_xl);
+    upper_boundArr = cat(1,upper_boundArr, string_xu);
+    
 end
 
 end
