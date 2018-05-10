@@ -12,8 +12,8 @@ string_xl = num2str(lower_bound);
 string_xu = num2str(upper_bound);
 string_xrnew = num2str(xrnew);
 string_error = num2str(error);
-lower_boundArr = {string_xl};
-upper_boundArr = {string_xu};
+lower_boundArr = {lower_bound};
+upper_boundArr = {upper_bound};
 str = ['xl = ' string_xl '  xu =  ' string_xu ' xr =  ' string_xrnew  '  error =  '  string_error];
 str_arr = {str};
 
@@ -23,8 +23,7 @@ while  error> precision && i<maxIterations
     if (f(upper_bound)*f(xrnew)<0)
         lower_bound=xrnew;
         
-    else
-        if (f(lower_bound)*f(xrnew)<0)
+    else if (f(lower_bound)*f(xrnew)<0)
         upper_bound=xrnew;
         else 
             break;
@@ -39,8 +38,8 @@ while  error> precision && i<maxIterations
     string_error = num2str(error);
     str = ['xl = ' string_xl '  xu =  ' string_xu ' xr =  ' string_xrnew  '  error =  '  string_error];
     str_arr = cat(1,str_arr,str);
-    lower_boundArr =  cat(1,lower_boundArr,string_xl);
-    upper_boundArr = cat(1,upper_boundArr, string_xu);
+    lower_boundArr =  cat(1,lower_boundArr,lower_bound);
+    upper_boundArr = cat(1,upper_boundArr, upper_boundArr
     i=i+1;
 end
 
