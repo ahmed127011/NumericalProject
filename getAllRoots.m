@@ -1,13 +1,14 @@
-function result = getAllRoots( f,lb,ub, maxIteration,perscision)
-
+function result = getAllRoots( f, maxIteration,perscision)
+    lb = -10000;
+    ub= 10000;
     i=lb;
     n=1;
     u=ub;
-    result{1}=NaN;
+    result={};
     while i<=u &&n<50
         
         if(f(i)==0)
-            result{n}=i;
+            result=cat(1,result,num2str(i));
             n=n+1;
             i=i+.1;
            continue; 
@@ -30,7 +31,7 @@ function result = getAllRoots( f,lb,ub, maxIteration,perscision)
            c=c-1;
        end
        if(c==0)
-           result{n}=temp;
+           result=cat(1,result,num2str(temp));
            n=n+1;
            i=temp+0.1;
        else
@@ -58,14 +59,14 @@ function result = getAllRoots( f,lb,ub, maxIteration,perscision)
                c=c-1;
             end
            if(c==0)
-               result{n}=l+k*i;
+               result=cat(1,result,num2str(l+k*i));
                n=n+1;
            end
            i=i+1;
            continue;
         end
 
-        if(f(l+k*i)*f(l+k*(i+1))<0)
+        if(f(l+k.*i)*f(l+k.*(i+1))<0)
        [str1,l1,l2,temp]=myBisectionAlgorithm(f,l+k*i,l+k*(i+1),maxIteration,perscision);
         c=n-1;
        while(c ~= 0)
@@ -75,7 +76,7 @@ function result = getAllRoots( f,lb,ub, maxIteration,perscision)
            c=c-1;
        end
        if(c==0)
-           result{n}=temp;
+           result=cat(1,result,num2str(temp));
            n=n+1;
            i=temp+0.1;
        end

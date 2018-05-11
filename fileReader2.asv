@@ -4,9 +4,9 @@ txt = textscan(fileID,'%s','delimiter','\n');
 type=str2double(txt{1}{1});
 switch type 
     case 1
-        type1 = "Newton";
+        t
     case 2
-        type1 = "Lagrange";
+        
     otherwise    
 end
 pointsNum=str2double(txt{1}{2});
