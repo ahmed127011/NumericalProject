@@ -1,5 +1,6 @@
-function [root,func] = newton_interpolation(order,x_array,y_array,point)
-
+function [root,func] = newton_interpolation(order,points,values,point)
+x_array= cell2mat(points);
+y_array=cell2mat(values);
 num=numel(x_array);
 order = order +1;
 table = zeros (num,order);
@@ -18,7 +19,7 @@ for i=2:1:num
         end
     end
 end
-%table
+table
 
 i=1;
 for j=2:1:(order+1)
@@ -26,7 +27,7 @@ for j=2:1:(order+1)
     i=i+1;
 end
 
-%b
+b
 
 syms f(x);
 syms g(x);
