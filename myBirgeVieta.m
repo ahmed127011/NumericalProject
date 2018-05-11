@@ -19,6 +19,7 @@ root = Xo-(b(1)/c(2));
     string_c = num2str(c(2));
     string_x_0 = num2str(Xo);
     string_x_1 = num2str(root);
-    str = ['b = ' string_b '  c =  ' string_c '  x_0 =  ' string_x_0  ' x_1 =  ' string_x_1];
+    errString =  num2str(abs(root - Xo));
+    str = ['b = ' string_b '  c =  ' string_c '  x_0 =  ' string_x_0  ' x_1 =  ' string_x_1 ' error = ' errString];
     
 end

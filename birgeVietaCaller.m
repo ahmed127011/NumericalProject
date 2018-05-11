@@ -7,7 +7,7 @@ function [str_arr] = birgeVietaCaller(a,x0,maxIteration,precision)
      [rooti2,str] = myBirgeVieta(a,rooti1);
      str_arr = cat(1,str_arr,str);
      i = 1;
-     while (rooti2-rooti1)>precision && i<maxIteration
+     while abs(rooti2-rooti1)>precision && i<maxIteration
          rooti1=rooti2;
          [rooti2,str] = myBirgeVieta(a,rooti1);
          str_arr = cat(1,str_arr,str);
