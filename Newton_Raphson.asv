@@ -1,5 +1,6 @@
 function [str_arr,lower_boundArr,upper_boundArr,result] = Newton_Raphson(x_i1,func,maxIteration,precision)
 syms f(x)
+ttt=x_i1;
 f(x) =func;
 fx = double(f(x_i1));
 dif = diff(f,x);
@@ -18,16 +19,17 @@ str_arr = {str};
 lower_boundArr = {string_x_i1};
 upper_boundArr = {string_x_i2};
 while error > precision && iterations < maxIteration
-    if dfdx<.0001
-        result=NaN;
-        return;
-    end
     iterations = iterations+1;
     x_i1 = x_i2;
+    ttt
+    x_i1
     f(x_i1)
     fx = double(f(x_i1));
     dfdx = double(dif(x_i1));
-    
+    if(dfdx<10^-3)
+        result=NaN;
+        return;
+    end
     x_i2 = x_i1-double(fx/dfdx);
     error =abs(x_i2-x_i1);
     

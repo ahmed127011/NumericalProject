@@ -1,4 +1,4 @@
-function [str_arr,lower_boundArr,upper_boundArr,result] = myBisectionAlgorithm (func,lb,ub,maxIterations,precision)
+function [str_arr,lower_boundArr,upper_boundArr,] = myBisectionAlgorithm (func,lb,ub,maxIterations,precision)
 syms f(x);
 f(x)=func;
 lower_bound=lb;
@@ -43,5 +43,5 @@ while  error> precision && i<maxIterations
     upper_boundArr = cat(1,upper_boundArr, string_xu);
     i=i+1;
 end
-result = xrnew;
+result = x_i2;
 end
