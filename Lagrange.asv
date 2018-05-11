@@ -1,0 +1,48 @@
+function [ corresponding ] = Lagrange(order,values,correspondings,query )
+syms f(x)
+syms g(x)
+f(x) = 0;
+iterator_1 = 2;
+iterations = 0;
+values = cell2mat(values);
+correspondings = cell2mat(correspondings);
+
+string_x_i1 = num2str(x_i1);
+string_x_i2 = num2str(x_i2);
+string_func1 = num2str(fx_0);
+string_func2 = num2str(fx_1);
+string_error = num2str(error);
+str = ['x_i1 = ' string_x_i1 '  x_i2 =  ' string_x_i2 '  f(x_i1) =  ' string_func1  ' f(x_i2) =  ' string_func2  '  error =  '  string_error];
+str_arr = {str};
+
+
+while iterations<(order+1)
+    g(x) = double(correspondings(iterator_1))
+    iterator_2 = 2 ;
+    iterations_two = 1;
+    while iterations_two<(order+1)
+        if iterator_1 ~= iterator_2
+            g(x) = g(x)*(x-values(iterator_2))/double((values(iterator_1)-values(iterator_2)))
+            iterations_two = iterations_two +1
+        end
+        iterator_2 = iterator_2+1
+        
+    end
+    f(x) = f(x)+g(x);
+    iterator_1 = iterator_1+1
+    iterations = iterations + 1
+    
+    string_x_i1 = num2str(x_i1);
+    string_x_i2 = num2str(x_i2);
+    string_func1 = num2str(fx_0);
+    string_func2 = num2str(fx_1);
+    string_error = num2str(error);
+    str = ['x_i1 = ' string_x_i1 '  x_i2 =  ' string_x_i2 '  f(x_i1) =  ' string_func1  ' f(x_i2) =  ' string_func2  '  error =  '  string_error];
+    str_arr = cat(1,str_arr,str);
+ 
+    
+    
+end
+corresponding = double(f(query))
+end
+
