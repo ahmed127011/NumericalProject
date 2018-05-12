@@ -16,7 +16,7 @@ i=1;
 
 x={};
 while i<=b
-    x= cat(1,x,num2str(x1{i}));
+    x= cat(1,x,x1{i});
     i=i+1;
 end
 x(1)
@@ -25,7 +25,7 @@ fx1=num2cell(str2num(txt{1}{4}))
 i=1;
 fx={};
 while i<=b
-    fx= cat(1,fx,num2str(fx1{i}));
+    fx= cat(1,fx,fx1{i});
     i=i+1;
 end
 fx
@@ -37,7 +37,7 @@ query1=num2cell(str2num(txt{1}{5}));
 i=1;
 query={};
 while i<=b
-    query= cat(1,query,num2str(query1{i}));
+    query= cat(1,query,query1{i});
     i=i+1;
 end
 
