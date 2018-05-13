@@ -1,6 +1,6 @@
 function [ corresponding,func ] = Lagrange(order,values,correspondings,query )
 
-if order>=numel(values)
+if order>=numel(values) 
    error('order is larger than number of points');
 end
 
@@ -11,6 +11,9 @@ f(x) = 0;
 values = cell2mat(values);
 correspondings = cell2mat(correspondings);
 
+if  query>values(numel(values))
+error('query larger than all points');
+end
 iterator_1 = 1;
 index = 1;
 while query>values(iterator_1)

@@ -7,7 +7,7 @@ function result = getAllRoots( f, maxIteration,perscision)
     co=0;
     result={};
     while i<=u &&n<50
- 
+        i
         if(f(i)==0)
             result=cat(1,result,num2str(i));
             n=n+1;
@@ -45,12 +45,15 @@ function result = getAllRoots( f, maxIteration,perscision)
  
     end
  
-    l=str2double(result{1});
+    [a1,a2,a,l]=Newton_Raphson(-10000,f,maxIteration,perscision);
  
     [a1,a2,a,u]=Newton_Raphson(10000,f,maxIteration,perscision);
  
     if(isnan(u))
         u=ub;
+    end
+    if(isnan(l))
+        l=lb;
     end
  
     i=1;
